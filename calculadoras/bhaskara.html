@@ -1,10 +1,36 @@
 <h1>Bhaskara</h1>
-A: <input type="text" id="aValue" />x² B: <input type="text" id="aValue" />x C:
-<input type="text" id="aValue" /> = 0
+A: <input type="text" id="aValue" />x² B: <input type="text" id="bValue" />x C:
+<input type="text" id="cValue" /> = 0
 <br />
 <input type="button" onclick="calcular()" value="Calcular" />
+<br />
+<p id="Total"></p>
 <script>
   function calcular() {
-    alert("calculando");
+    let a = document.getElementById("aValue").value;
+    let b = document.getElementById("bValue").value;
+    let c = document.getElementById("cValue").value;
+    let display = document.getElementById("Total");
+
+    if (isNaN(a) || isNaN(b) || isNaN(c)) {
+      alert("A, b ou C inválidos.");
+      return
+    }
+
+    let delta = b * b - 4 * a * c;
+
+    if (delta < 0) {
+      alert("VALOR DE DELTA NEGATIVO BABY");
+      return
+    } else if(delta = 0 ){
+        
+    }
+    let x1;
+    let x2;
+    b = b * -1;
+    x1 = (b - delta ** 0.5) / 2 * a;
+    x2 = (b + delta ** 0.5) / 2 * a;
+
+    display.textContent = `x1 = ${x1} & x2 = ${x2}`
   }
 </script>
