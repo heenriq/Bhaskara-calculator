@@ -1,0 +1,42 @@
+<img
+  src="/Bhaskara-calculator/calculadoras/triangulo-rectangulo-1024x1001.webp"
+  width="400px"
+/>
+<h1>Pitágoras</h1>
+A: <input type="text" id="aValue" />² B: <input type="text" id="bValue" />² C:
+<input type="text" id="cValue" />²
+<br />
+<input type="button" onclick="calcular()" value="Calcular" />
+<br />
+<p id="Total"></p>
+
+<script>
+  function calcular() {
+    let a = document.getElementById("aValue").value;
+    let b = document.getElementById("bValue").value;
+    let c = document.getElementById("cValue").value;
+    let display = document.getElementById("Total");
+
+    a = parseFloat(a);
+    b = parseFloat(b);
+
+    c = parseFloat(c);
+
+    console.log(a);
+    console.log(b);
+    console.log(c);
+
+    if ((isNaN(a) && isNaN(b)) || isNaN(c)) {
+      alert("da nao");
+    } else if (isNaN(a)) {
+      a = c - b;
+      return (display.textContent = `O número de a é: ${a}²`);
+    } else if (b === "" || isNaN(b)) {
+      b = c - a;
+      return (display.textContent = `O número de b é: ${b}²`);
+    } else {
+      c = a + b;
+      return (display.textContent = `O número de c é: ${c}²`);
+    }
+  }
+</script>
